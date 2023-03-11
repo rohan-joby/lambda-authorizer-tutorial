@@ -1,0 +1,37 @@
+name: Lambda Authorizer Tutorial CD
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy-code:
+    name: Deploy Lambdas to AWS
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+      
+      # - name: Setup node environment
+      #   uses: actions/setup-node@v3
+      #   with: 
+			# 		node-version: 14
+
+      # - name: Install dependencies
+      #   run: yarn
+      
+      # - name: Create env file
+      #   uses: SpicyPizza/create-envfile@v1.3
+
+      # - name: Get AWS permissions
+      #   uses: aws-actions/configure-aws-credentials@v2
+      #   with:
+      #     role-to-assume: ${{ secrets.roleToAssume   }}
+      #     aws-region: ${{ secrets.region }}
+
+      # - name: Deploy
+      #   run: yarn deploy
