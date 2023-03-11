@@ -16,22 +16,22 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
       
-      # - name: Setup node environment
-      #   uses: actions/setup-node@v3
-      #   with: 
-			# 		node-version: 14
+      - name: Setup node environment
+        uses: actions/setup-node@v3
+        with: 
+					node-version: 14
 
-      # - name: Install dependencies
-      #   run: yarn
+      - name: Install dependencies
+        run: yarn
       
-      # - name: Create env file
-      #   uses: SpicyPizza/create-envfile@v1.3
+      - name: Create env file
+        uses: SpicyPizza/create-envfile@v1.3
 
-      # - name: Get AWS permissions
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     role-to-assume: ${{ secrets.roleToAssume   }}
-      #     aws-region: ${{ secrets.region }}
+      - name: Get AWS permissions
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.roleToAssume   }}
+          aws-region: ${{ secrets.region }}
 
-      # - name: Deploy
-      #   run: yarn deploy
+      - name: Deploy
+        run: yarn deploy
