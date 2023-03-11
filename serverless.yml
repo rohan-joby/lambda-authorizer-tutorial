@@ -3,6 +3,7 @@ service: ${env:NAME}
 useDotenv: true
 plugins:
   - serverless-offline
+  - serverless-webpack
 
 provider:
   name: aws
@@ -10,6 +11,13 @@ provider:
   region: ${env:REGION}
   timeout: ${env:TIMEOUT_SECONDS}
   stage: staging
+
+package:
+  individually: true
+
+custom:
+  webpack:
+    includeModules: false
 
 functions:
   hello:

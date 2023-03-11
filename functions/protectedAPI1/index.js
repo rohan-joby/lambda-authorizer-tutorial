@@ -12,5 +12,7 @@ export const handler = async (event) => {
     return lambdaSuccess(response);
   } catch (error) {
     return lambdaFailure({ message: error.message });
+
+    
   }
 };
