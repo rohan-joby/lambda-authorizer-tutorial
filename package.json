@@ -11,10 +11,8 @@
   "keywords": [],
   "author": "Rohan Joby",
   "license": "ISC",
-  "dependencies": {
-    "serverless": "^3.28.0"
-  },
   "devDependencies": {
+    "serverless": "^3.28.1",
     "serverless-offline": "^12.0.4"
   }
 }
