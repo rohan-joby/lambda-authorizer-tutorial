@@ -1,0 +1,33 @@
+# Service name
+service: ${env:NAME}
+useDotenv: true
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ${env:REGION}
+  timeout: ${env:TIMEOUT_SECONDS}
+  stage: staging
+
+functions:
+  hello:
+    handler: functions/protectedAPI1/index.handler
+    events:
+      - http:
+          path: protected-resource-1
+          method: get
+          authorizer: auth-lambda
+
+  bye:
+    handler: functions/protectedAPI2/index.handler
+    events:
+      - http:
+          path: protected-resource-2
+          method: get
+          authorizer: auth-lambda
+
+  auth-lambda:
+    handler: functions/auth/index.handler
+    type: token
