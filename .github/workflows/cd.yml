@@ -16,6 +16,16 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
 
+      - name: Set branch output to variable
+        id: branch-name
+        run: echo stage=${GITHUB_REF#refs/*/} >> $GITHUB_OUTPUT
+
+      - name: Set env.ENVIRONMENT_NAME
+        run: |
+          if [[ ${{steps.branch-name.outputs.stage}} == 'staging' ]]; then
+              echo "ENVIRONMENT_NAME=staging" >> "$GITHUB_ENV"
+          fi
+
       - name: Setup node environment
         uses: actions/setup-node@v3
         with:
