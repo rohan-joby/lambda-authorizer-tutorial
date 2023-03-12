@@ -21,22 +21,22 @@ custom:
     includeModules: false
 
 functions:
-  hello:
+  protectedAPI1:
     handler: functions/protectedAPI1/index.handler
     events:
       - http:
           path: protected-resource-1
           method: get
-          authorizer: auth-lambda
+          authorizer: authLambda
 
-  bye:
+  protectedAPI2:
     handler: functions/protectedAPI2/index.handler
     events:
       - http:
           path: protected-resource-2
           method: get
-          authorizer: auth-lambda
+          authorizer: authLambda
 
-  auth-lambda:
+  authLambda:
     handler: functions/auth/index.handler
     type: token

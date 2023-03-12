@@ -5,11 +5,12 @@ export const handler = async (event) => {
   try {
     const authorizerContext = event.requestContext.authorizer;
     const role = authorizerContext?.role;
-    if (!role) {
+    const administrator = authorizerContext?.administrator;
+    if (!role || !administrator) {
       return lambdaFailure({ message: 'Unauthorized access' }, 403);
     }
 
-    const response = formatResponse(role);
+    const response = formatResponse(role, administrator);
     return lambdaSuccess(response);
   } catch (error) {
     return lambdaFailure({ message: error.message });
