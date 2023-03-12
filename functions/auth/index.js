@@ -12,9 +12,10 @@ export const handler = async (event) => {
 
     switch (token) {
       case admin:
+        return generatePolicy('user', 'Allow', event.methodArn, { role: token, administrator: true });
       case operations:
       case user:
-        return generatePolicy('user', 'Allow', event.methodArn, { role: token });
+        return generatePolicy('user', 'Allow', event.methodArn, { role: token, administrator: false });
 
       case 'deny':
         return generatePolicy('user', 'Deny', event.methodArn);
