@@ -18,7 +18,3 @@
 - [ ] Relevant documentation is changed or added (and PR referenced)
 
 ---
-
-### GIF's
-
----
