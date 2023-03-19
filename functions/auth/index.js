@@ -24,6 +24,6 @@ export const handler = async (event) => {
         return 'Unauthorized'; // Return a 401 Unauthorized response
     }
   } catch (error) {
-    return 'Unauthorized';
+    return 'Unauthorized'; // Return a 401 Unauthorized response
   }
 };
