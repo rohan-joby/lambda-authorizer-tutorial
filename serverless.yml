@@ -13,8 +13,8 @@ provider:
   timeout: ${env:TIMEOUT_SECONDS}
   stage: staging
 
-package:
-  individually: true
+# package:
+#   individually: true
 
 custom:
   webpack:
